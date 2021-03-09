@@ -14,9 +14,9 @@ namespace Lection4
 {
 
 	static class ExpandedString
-    {
+	{
 		public static string CutString(this string baseString, int end)
-        {
+		{
 			return baseString.Substring(0, end);
 		}
 
@@ -26,12 +26,12 @@ namespace Lection4
 		}
 
 		public static string AddStringsToBaseString(this string baseString, string[] strings)
-        {
+        	{
 			return baseString + string.Concat(strings);
 		}
 
 		public static string InvertUppercaseLowercase(this string baseString)
-        {
+        	{
 			string reverseString = new string(baseString.Select(symbol => char.IsLetter(symbol) ?
 			(char.IsUpper(symbol) ? char.ToLower(symbol) : char.ToUpper(symbol)) : symbol).ToArray());
 			return reverseString;
