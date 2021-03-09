@@ -22,152 +22,149 @@ namespace Lection4
     {
         public static string ReformatNumber(this long number)
         {
-			int n = (int)Math.Log10(number);
-			double convertedNumber;
-			string stringifiedConvertedNumber;
+		int n = (int)Math.Log10(number);
+		double convertedNumber;
+		string stringifiedConvertedNumber;
 
-			char powerSymbol;
-			int power;
+		char powerSymbol;
+		int power;
 
+		if (n < 3)
+		{
+			powerSymbol = ' ';
+			power = 0;
+		}
+		else if (n < 6)
+            	{
+			powerSymbol = 'K';
+			power = 3;
+		}
+		else if (n < 9)
+            	{
+			powerSymbol = 'M';
+			power = 6;
+		}
+		else if (n < 12)
+            	{
+			powerSymbol = 'B';
+			power = 9;
+		}
+		else if (n < 15)
+            	{
+			powerSymbol = 'T';
+			power = 12;
+		}
+            	else
+            	{
+			powerSymbol = '?';
+			power = 0;
+		}
 
-			if (n < 3)
-            {
-				powerSymbol = ' ';
-				power = 0;
-			}
-			else if (n < 6)
-            {
-				powerSymbol = 'K';
-				power = 3;
-			}
-			else if (n < 9)
-            {
-				powerSymbol = 'M';
-				power = 6;
-			}
-			else if (n < 12)
-            {
-				powerSymbol = 'B';
-				power = 9;
-			}
-			else if (n < 15)
-            {
-				powerSymbol = 'T';
-				power = 12;
-			}
-            else
-            {
-				powerSymbol = '?';
-				power = 0;
-			}
+		convertedNumber = number / Math.Pow(10, power);
+		if(convertedNumber.ToString().Contains('.'))
+			stringifiedConvertedNumber = convertedNumber.ToString().CutString(4) + powerSymbol;
+		else
+			stringifiedConvertedNumber = convertedNumber.ToString().CutString(3) + powerSymbol;
 
-			convertedNumber = number / Math.Pow(10, power);
-			if(convertedNumber.ToString().Contains('.'))
-				stringifiedConvertedNumber = convertedNumber.ToString().CutString(4) + powerSymbol;
-			else
-				stringifiedConvertedNumber = convertedNumber.ToString().CutString(3) + powerSymbol;
-
-			return stringifiedConvertedNumber;
+		return stringifiedConvertedNumber;
         }
 
-		public static string ReformatNumber(this int number)
+	public static string ReformatNumber(this int number)
+	{
+		int n = (int)Math.Log10(number);
+		double convertedNumber;
+		string stringifiedConvertedNumber;
+
+		char powerSymbol;
+		int power;
+
+		if (n < 3)
 		{
-			int n = (int)Math.Log10(number);
-			double convertedNumber;
-			string stringifiedConvertedNumber;
-
-			char powerSymbol;
-			int power;
-
-
-			if (n < 3)
-			{
-				powerSymbol = ' ';
-				power = 0;
-			}
-			else if (n < 6)
-			{
-				powerSymbol = 'K';
-				power = 3;
-			}
-			else if (n < 9)
-			{
-				powerSymbol = 'M';
-				power = 6;
-			}
-			else if (n < 12)
-			{
-				powerSymbol = 'B';
-				power = 9;
-			}
-			else if (n < 15)
-			{
-				powerSymbol = 'T';
-				power = 12;
-			}
-			else
-			{
-				powerSymbol = '?';
-				power = 0;
-			}
-
-			convertedNumber = number / Math.Pow(10, power);
-			if (convertedNumber.ToString().Contains('.'))
-				stringifiedConvertedNumber = convertedNumber.ToString().CutString(4) + powerSymbol;
-			else
-				stringifiedConvertedNumber = convertedNumber.ToString().CutString(3) + powerSymbol;
-
-			return stringifiedConvertedNumber;
+			powerSymbol = ' ';
+			power = 0;
+		}
+		else if (n < 6)
+            	{
+			powerSymbol = 'K';
+			power = 3;
+		}
+		else if (n < 9)
+            	{
+			powerSymbol = 'M';
+			power = 6;
+		}
+		else if (n < 12)
+            	{
+			powerSymbol = 'B';
+			power = 9;
+		}
+		else if (n < 15)
+            	{
+			powerSymbol = 'T';
+			power = 12;
+		}
+            	else
+            	{
+			powerSymbol = '?';
+			power = 0;
 		}
 
-		public static string ReformatNumber(this float number)
-		{
-			int n = (int)Math.Log10(number);
-			double convertedNumber;
-			string stringifiedConvertedNumber;
+		convertedNumber = number / Math.Pow(10, power);
+		if(convertedNumber.ToString().Contains('.'))
+			stringifiedConvertedNumber = convertedNumber.ToString().CutString(4) + powerSymbol;
+		else
+			stringifiedConvertedNumber = convertedNumber.ToString().CutString(3) + powerSymbol;
 
-			char powerSymbol;
-			int power;
-
-
-			if (n < 3)
-			{
-				powerSymbol = ' ';
-				power = 0;
-			}
-			else if (n < 6)
-			{
-				powerSymbol = 'K';
-				power = 3;
-			}
-			else if (n < 9)
-			{
-				powerSymbol = 'M';
-				power = 6;
-			}
-			else if (n < 12)
-			{
-				powerSymbol = 'B';
-				power = 9;
-			}
-			else if (n < 15)
-			{
-				powerSymbol = 'T';
-				power = 12;
-			}
-			else
-			{
-				powerSymbol = '?';
-				power = 0;
-			}
-
-			convertedNumber = number / Math.Pow(10, power);
-			if (convertedNumber.ToString().Contains('.'))
-				stringifiedConvertedNumber = convertedNumber.ToString().CutString(4) + powerSymbol;
-			else
-				stringifiedConvertedNumber = convertedNumber.ToString().CutString(3) + powerSymbol;
-
-			return stringifiedConvertedNumber;
-		}
+		return stringifiedConvertedNumber;
 	}
+
+	public static string ReformatNumber(this float number)
+	{
+		int n = (int)Math.Log10(number);
+		double convertedNumber;
+		string stringifiedConvertedNumber;
+
+		char powerSymbol;
+		int power;
+
+		if (n < 3)
+		{
+			powerSymbol = ' ';
+			power = 0;
+		}
+		else if (n < 6)
+            	{
+			powerSymbol = 'K';
+			power = 3;
+		}
+		else if (n < 9)
+            	{
+			powerSymbol = 'M';
+			power = 6;
+		}
+		else if (n < 12)
+            	{
+			powerSymbol = 'B';
+			power = 9;
+		}
+		else if (n < 15)
+            	{
+			powerSymbol = 'T';
+			power = 12;
+		}
+            	else
+            	{
+			powerSymbol = '?';
+			power = 0;
+		}
+
+		convertedNumber = number / Math.Pow(10, power);
+		if(convertedNumber.ToString().Contains('.'))
+			stringifiedConvertedNumber = convertedNumber.ToString().CutString(4) + powerSymbol;
+		else
+			stringifiedConvertedNumber = convertedNumber.ToString().CutString(3) + powerSymbol;
+
+		return stringifiedConvertedNumber;
+	}
+    }
 }
